@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>ReciVido</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="estilos.css" />
+
+    <script type="text/javascript" src="functions.js"></script>
+  </head>
+
+  <body>
+    <table>
+      <tr>
+        <td>
+          <div id="imagen"></div>
+        </td>
+        <td>
+          <div id="alimento"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>Calorías (kCaL)</td>
+        <td>
+          <div id="calorias"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>Grasas (g)</td>
+        <td>
+          <div id="grasas"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>Proteína (g)</td>
+        <td>
+          <div id="proteinas"></div>
+        </td>
+      </tr>
+      <tr>
+        <td>Carbohidratos (g)</td>
+        <td>
+          <div id="carbohidratos"></div>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      const queryString = window.location.search;
+      console.log(queryString);
+      const params = new URLSearchParams(queryString);
+      ok = params.get("ok");
+      al = params.get("alimento");
+      cl = params.get("calorias");
+      gr = params.get("grasas");
+      pr= params.get("proteina");
+      ch = params.get("carbohidratos");
+      if (ok == 1) {
+        document.getElementById("imagen").innerHTML =
+          '<img src="melardo.jpeg" alt="ok" style="width:60px;height:60px;">';
+      } else {
+        document.getElementById("imagen").innerHTML =
+          '<img src="malardo.jpeg" alt="nook" style="width:60px;height:60px;">';
+      }
+      document.getElementById("alimento").innerHTML = al + "<br>Alimento";
+      document.getElementById("calorias").innerHTML = cl;
+      document.getElementById("grasas").innerHTML = gr;
+      document.getElementById("proteinas").innerHTML = pr;
+      document.getElementById("carbohidratos").innerHTML = ch;
+
+    </script>
+  </body>
+</html>
